@@ -1,10 +1,12 @@
 <script setup>
 import AppButton from '@/components/AppButton.vue'
-import { inject, computed } from 'vue'
+import { computed } from 'vue'
 import { useScrollLock } from '@/composables/useScrollLock'
+import { useCartStore } from '@/stores/cart'
 
 const open = defineModel('open')
-const { cartItems } = inject('cart')
+
+const cartStore = useCartStore()
 
 const { unlockScrollbar } = useScrollLock(open)
 
@@ -17,7 +19,7 @@ function closeModal() {
 }
 
 const totalPrice = computed(() => {
-  return cartItems.reduce((total, item) => item.quantity * item.price + total, 0)
+  return cartStore.cartItems.reduce((total, item) => item.quantity * item.price + total, 0)
 })
 </script>
 <template>
@@ -46,7 +48,7 @@ const totalPrice = computed(() => {
             class="flex flex-col gap-4 overflow-y-auto text-sm border-b border-gray-300 py-4 px-2"
           >
             <li
-              v-for="item in cartItems"
+              v-for="item in cartStore.cartItems"
               :key="item.name"
               class="grid grid-cols-[auto_1fr_auto] gap-4"
             >

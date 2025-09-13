@@ -1,7 +1,8 @@
 <script setup>
-import { computed, inject } from 'vue'
+import { computed } from 'vue'
 import IconIncrement from '@/components/icons/IconIncrementQuantity.vue'
 import IconDecrement from '@/components/icons/IconDecrementQuantity.vue'
+import { useCartStore } from '@/stores/cart'
 
 const { product } = defineProps({
   product: {
@@ -10,22 +11,22 @@ const { product } = defineProps({
   },
 })
 
-const cart = inject('cart')
+const cartStore = useCartStore()
 
 const quantityInCart = computed(() => {
-  const item = cart.cartItems.find((item) => item.name === product.name)
+  const item = cartStore.cartItems.find((item) => item.name === product.name)
   return item ? item.quantity : 0
 })
 
 function handleAddToCart() {
-  cart.addToCart(product)
+  cartStore.addToCart(product)
 }
 function incrementQuantityInCart() {
-  cart.updateQuantity(product.name, 'INC')
+  cartStore.updateQuantity(product.name, 'INC')
 }
 
 function decrementQuantityInCart() {
-  cart.updateQuantity(product.name, 'DEC')
+  cartStore.updateQuantity(product.name, 'DEC')
 }
 </script>
 <template>

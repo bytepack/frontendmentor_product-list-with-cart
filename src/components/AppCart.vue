@@ -1,17 +1,19 @@
 <script setup>
-import { inject, ref, computed } from 'vue'
+import { ref, computed } from 'vue'
 import AppButton from '@/components/AppButton.vue'
 import ModalConfirmOrder from './ModalConfirmOrder.vue'
-const { cartItems, removeFromCart } = inject('cart')
+import { useCartStore } from '@/stores/cart'
+
+const cartStore = useCartStore()
 
 const confirmModalOpen = ref(false)
 
 const totalQuantity = computed(() => {
-  return cartItems.reduce((total, item) => total + item.quantity, 0)
+  return cartStore.cartItems.reduce((total, item) => total + item.quantity, 0)
 })
 
 const totalPrice = computed(() => {
-  return cartItems.reduce((total, item) => item.quantity * item.price + total, 0)
+  return cartStore.cartItems.reduce((total, item) => item.quantity * item.price + total, 0)
 })
 
 function confirmOrder() {
@@ -20,18 +22,22 @@ function confirmOrder() {
 
 function startOver() {
   if (!confirmModalOpen.value) {
-    ;[...cartItems].forEach((item) => removeFromCart(item.name))
+    cartStore.clearCart()
   }
 }
 </script>
 <template>
   <div class="flex flex-col gap-4 bg-white rounded-lg shadow-lg p-8">
     <div class="font-bold text-2xl text-orange-700 self-start">Your Cart ({{ totalQuantity }})</div>
-    <template v-if="cartItems.length">
+    <template v-if="cartStore.cartItems.length">
       <ul
         class="max-h-[calc(100vh-20rem)] overflow-y-auto flex flex-col gap-4 text-sm border-b border-gray-300 py-4 px-2"
       >
-        <li v-for="item in cartItems" :key="item.name" class="grid grid-cols-[1fr_auto] gap-2">
+        <li
+          v-for="item in cartStore.cartItems"
+          :key="item.name"
+          class="grid grid-cols-[1fr_auto] gap-2"
+        >
           <h3 class="font-semibold">{{ item.name }}</h3>
           <button class="row-span-2 self-center cursor-pointer" @click="removeFromCart(item.name)">
             <img

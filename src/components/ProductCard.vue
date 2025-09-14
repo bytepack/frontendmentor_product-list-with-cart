@@ -41,6 +41,7 @@ function decrementQuantityInCart() {
         class="border-2 rounded-lg shadow-lg aspect-[654/424] md:aspect-[427/424] lg:aspect-[502/480]"
         :class="[quantityInCart ? 'border-orange-700' : 'border-transparent']"
         loading="lazy"
+        :alt="product.name"
       />
     </picture>
     <div

@@ -39,4 +39,4 @@ Users should be able to:
 - Vue
 - Tailwindcss
 
-- Frontend Mentor - [@bytepack](https://www.frontendmentor.io/profile/bytepack)
+Frontend Mentor - [@bytepack](https://www.frontendmentor.io/profile/bytepack)

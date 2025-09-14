@@ -1,5 +1,5 @@
 <script setup>
-import AppButton from '@/components/AppButton.vue'
+import BaseButton from '@/components/BaseButton.vue'
 import { computed } from 'vue'
 import { useScrollLock } from '@/composables/useScrollLock'
 import { useCartStore } from '@/stores/cart'
@@ -75,7 +75,7 @@ const totalPrice = computed(() => {
             <span>Order Total</span>
             <span class="font-bold text-2xl">${{ totalPrice }}</span>
           </div>
-          <AppButton @click="closeModal()">Start New Order</AppButton>
+          <BaseButton @click="closeModal()">Start New Order</BaseButton>
         </div>
       </div>
     </Teleport>

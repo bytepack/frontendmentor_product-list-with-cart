@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
-import AppButton from '@/components/AppButton.vue'
+import BaseButton from '@/components/BaseButton.vue'
 import ModalConfirmOrder from './ModalConfirmOrder.vue'
 import { useCartStore } from '@/stores/cart'
 
@@ -61,7 +61,7 @@ function startOver() {
         <span>Order Total</span>
         <span class="font-bold text-2xl">${{ totalPrice }}</span>
       </div>
-      <AppButton @click="confirmOrder()">Confirm Order</AppButton>
+      <BaseButton @click="confirmOrder()">Confirm Order</BaseButton>
     </template>
     <template v-else>
       <img class="self-center" src="@/assets/images/illustration-empty-cart.svg" alt="empty cart" />

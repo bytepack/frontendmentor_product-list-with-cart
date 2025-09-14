@@ -84,7 +84,7 @@ function decrementQuantityInCart() {
     </button>
 
     <div class="text-sm">{{ product.category }}</div>
-    <h3 class="font-semibold">{{ product.name }}</h3>
+    <h2 class="font-semibold">{{ product.name }}</h2>
     <div class="text-orange-700 font-semibold">${{ product.price }}</div>
   </div>
 </template>

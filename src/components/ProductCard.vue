@@ -79,7 +79,7 @@ function decrementQuantityInCart() {
       class="flex gap-4 justify-center self-center -translate-y-1/2 -mt-0.5 bg-white px-6 py-3.5 rounded-full border-1 border-orange-400 cursor-pointer"
       type="button"
     >
-      <img src="@/assets/images/icon-add-to-cart.svg" width="20" class="w-5" />
+      <img src="@/assets/images/icon-add-to-cart.svg" width="20" class="w-5" alt="add to cart" />
       <span class="text-sm font-semibold">Add to Cart</span>
     </button>
 

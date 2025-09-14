@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "pnpm run build && wrangler dev",
-    "deploy": "pnpm run build && wrangler deploy",
+    "preview": "vite preview",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
   },
@@ -21,7 +20,6 @@
     "vue": "^3.5.18"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.13.0",
     "@eslint/js": "^9.31.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/eslint-config-prettier": "^10.2.0",
@@ -30,7 +28,6 @@
     "globals": "^16.3.0",
     "prettier": "3.6.2",
     "vite": "^7.0.6",
-    "vite-plugin-vue-devtools": "^8.0.0",
-    "wrangler": "^4.36.0"
+    "vite-plugin-vue-devtools": "^8.0.0"
   }
 }

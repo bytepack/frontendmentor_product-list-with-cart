@@ -42,6 +42,7 @@ function startOver() {
           <button
             class="row-span-2 self-center cursor-pointer"
             @click="cartStore.removeFromCart(item.name)"
+            type="button"
           >
             <img
               class="w-5 h-5 border-2 border-[#CAAFA7] p-0.5 rounded-full"

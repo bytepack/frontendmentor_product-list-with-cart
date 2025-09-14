@@ -51,6 +51,7 @@ function decrementQuantityInCart() {
       <button
         @click="decrementQuantityInCart()"
         class="group p-0.5 border-2 border-white rounded-full cursor-pointer transition-colors duration-200 hover:bg-white"
+        type="button"
       >
         <IconDecrement
           width="12"
@@ -63,6 +64,7 @@ function decrementQuantityInCart() {
       <button
         @click="incrementQuantityInCart()"
         class="group p-0.5 border-2 border-white rounded-full cursor-pointer transition-colors duration-200 hover:bg-white"
+        type="button"
       >
         <IconIncrement
           width="12"
@@ -75,6 +77,7 @@ function decrementQuantityInCart() {
       v-else
       @click="handleAddToCart()"
       class="flex gap-4 justify-center self-center -translate-y-1/2 -mt-0.5 bg-white px-6 py-3.5 rounded-full border-1 border-orange-400 cursor-pointer"
+      type="button"
     >
       <img src="@/assets/images/icon-add-to-cart.svg" width="20" class="w-5" />
       <span class="text-sm font-semibold">Add to Cart</span>

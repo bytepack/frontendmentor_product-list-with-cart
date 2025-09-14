@@ -39,7 +39,10 @@ function startOver() {
           class="grid grid-cols-[1fr_auto] gap-2"
         >
           <h3 class="font-semibold">{{ item.name }}</h3>
-          <button class="row-span-2 self-center cursor-pointer" @click="removeFromCart(item.name)">
+          <button
+            class="row-span-2 self-center cursor-pointer"
+            @click="cartStore.removeFromCart(item.name)"
+          >
             <img
               class="w-5 h-5 border-2 border-[#CAAFA7] p-0.5 rounded-full"
               width="20"

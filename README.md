@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Live Site URL](https://frontendmentor-product-with-cart.vercel.app/)
+- [Solution URL](https://www.frontendmentor.io/solutions/product-list-with-cart-TT75OrGBTF)
 
 ### Built with
 

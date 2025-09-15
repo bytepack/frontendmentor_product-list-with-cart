@@ -54,44 +54,53 @@ function decrementQuantity() {
         />
       </picture>
     </div>
-    <div
-      v-if="quantity"
-      class="flex justify-between items-center gap-8 self-center -translate-y-1/2 -mt-0.5 bg-orange-700 px-6 py-3 rounded-full border-1 border-orange-400"
-    >
-      <button
-        @click="decrementQuantity()"
-        class="group p-0.5 border-2 border-white rounded-full cursor-pointer transition-colors duration-200 hover:bg-white"
-        type="button"
-      >
-        <IconDecrement
-          width="12"
-          height="12"
-          class="w-3 h-3 fill-white transition-colors duration-200 group-hover:fill-orange-700"
-        />
-      </button>
 
-      <span class="text-white font-semibold">{{ quantity }}</span>
+    <Transition
+      mode="out-in"
+      enter-from-class="scale-0 opacity-0"
+      leave-to-class="opacity-0"
+      enter-active-class="transition-all ease-out duration-200"
+      leave-active-class="transition-all ease-in duration-100"
+    >
+      <div
+        v-if="quantity"
+        class="flex justify-between items-center gap-8 self-center -translate-y-1/2 -mt-0.5 bg-orange-700 px-6 py-3 rounded-full border-1 border-orange-400"
+      >
+        <button
+          @click="decrementQuantity()"
+          class="group p-0.5 border-2 border-white rounded-full cursor-pointer transition-colors duration-200 hover:bg-white"
+          type="button"
+        >
+          <IconDecrement
+            width="12"
+            height="12"
+            class="w-3 h-3 fill-white transition-colors duration-200 group-hover:fill-orange-700"
+          />
+        </button>
+
+        <span class="text-white font-semibold">{{ quantity }}</span>
+        <button
+          @click="incrementQuantity()"
+          class="group p-0.5 border-2 border-white rounded-full cursor-pointer transition-colors duration-200 hover:bg-white"
+          type="button"
+        >
+          <IconIncrement
+            width="12"
+            height="12"
+            class="w-3 h-3 fill-white transition-colors duration-200 group-hover:fill-orange-700"
+          />
+        </button>
+      </div>
       <button
-        @click="incrementQuantity()"
-        class="group p-0.5 border-2 border-white rounded-full cursor-pointer transition-colors duration-200 hover:bg-white"
+        v-else
+        @click="handleAddToCart()"
+        class="flex gap-4 justify-center self-center -translate-y-1/2 -mt-0.5 bg-white px-6 py-3.5 rounded-full border-1 border-orange-400 cursor-pointer"
         type="button"
       >
-        <IconIncrement
-          width="12"
-          height="12"
-          class="w-3 h-3 fill-white transition-colors duration-200 group-hover:fill-orange-700"
-        />
+        <img src="@/assets/images/icon-add-to-cart.svg" width="20" class="w-5" alt="add to cart" />
+        <span class="text-sm font-semibold">Add to Cart</span>
       </button>
-    </div>
-    <button
-      v-else
-      @click="handleAddToCart()"
-      class="flex gap-4 justify-center self-center -translate-y-1/2 -mt-0.5 bg-white px-6 py-3.5 rounded-full border-1 border-orange-400 cursor-pointer"
-      type="button"
-    >
-      <img src="@/assets/images/icon-add-to-cart.svg" width="20" class="w-5" alt="add to cart" />
-      <span class="text-sm font-semibold">Add to Cart</span>
-    </button>
+    </Transition>
 
     <div class="text-sm">{{ product.category }}</div>
     <h2 class="font-semibold">{{ product.name }}</h2>
